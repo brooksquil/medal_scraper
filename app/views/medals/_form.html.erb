@@ -1,0 +1,47 @@
+<%= form_with(model: medal, local: true) do |form| %>
+  <% if medal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(medal.errors.count, "error") %> prohibited this medal from being saved:</h2>
+
+      <ul>
+        <% medal.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :rank %>
+    <%= form.number_field :rank %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nation %>
+    <%= form.text_field :nation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gold %>
+    <%= form.number_field :gold %>
+  </div>
+
+  <div class="field">
+    <%= form.label :silver %>
+    <%= form.number_field :silver %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bronze %>
+    <%= form.number_field :bronze %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total %>
+    <%= form.number_field :total %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

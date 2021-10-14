@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<%= button_to 'Scrape', scrape_medals_path %>
+
+
+<h1>Medals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Nation</th>
+      <th>Gold</th>
+      <th>Silver</th>
+      <th>Bronze</th>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @medals.each do |medal| %>
+      <tr>
+        <td><%= medal.rank %></td>
+        <td><%= medal.nation %></td>
+        <td><%= medal.gold %></td>
+        <td><%= medal.silver %></td>
+        <td><%= medal.bronze %></td>
+        <td><%= medal.total %></td>
+        <td><%= link_to 'Show', medal %></td>
+        <td><%= link_to 'Edit', edit_medal_path(medal) %></td>
+        <td><%= link_to 'Destroy', medal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Medal', new_medal_path %>
